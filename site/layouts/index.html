@@ -1,25 +1,13 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<title>Document</title>
-<link rel="stylesheet" href="css/style.css"> 
-</head>
-<body>
-<center>
-<br>
-<br> 
-</center>
-<div class="dot-wrapper">
-	<div class="dot">
-		<a href="https://zedteam.org/"><img src="images/1.png"/></a>
-		<a href="https://zedteam.org/"><img src="images/2.jpg"/></a>
-		<a href="https://zedteam.org/"><img src="images/3.png"/></a>
-		<a href="https://zedteam.org/"><img src="images/4.jpg"/></a>
-		<a href="https://zedteam.org/"><img src="images/5.png"/></a>
-		<a href="https://zedteam.org/"><img src="images/6.png"/></a>
-		<a href="https://zedteam.org/"><img src="images/7.png"/></a> 
-	</div>
-</div> 
-</body>
-</html>
+{{ define "main" }}
+
+{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+
+{{ partial "short-text" .Params.blurb}}
+
+{{ partial "2-up" .Params }}
+
+{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
+
+{{ partial "blog" . }}
+
+{{ end }}
